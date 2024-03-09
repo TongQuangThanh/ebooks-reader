@@ -1,0 +1,7 @@
+{
+  "name": "Ebooks Reader",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
