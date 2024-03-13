@@ -1,0 +1,28 @@
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+#container {
+  height: 100%;
+  position: relative;
+}
+
+#viewer {
+  width: 100%;
+  height: 100%;
+  transition: margin-right .2s;
+}
+
+.nav {
+  height: 100%;
+  top: 0px;
+  width: 10vw;
+  z-index: 1;
+  position: absolute;
+  &.back {
+    left: 0px;
+  }
+  &.next {
+    right: 0px;
+  }
+}

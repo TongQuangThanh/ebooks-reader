@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancelChanges()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="end" *ngIf="selectMode === 'multiple'">
+      <ion-button (click)="confirmChanges()">
+        <ion-icon slot="icon-only" name="check"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar (ionInput)="searchbarInput($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" class="ion-padding">
+  <ion-list id="modal-list" [inset]="true">
+    <ion-item *ngFor="let item of displayItems; trackBy: trackItems" (click)="selectItem(item)">
+      <ion-checkbox *ngIf="selectMode === 'multiple'"
+                    [value]="item.value"
+                    [checked]="isChecked(item.value)"
+                    (ionChange)="checkboxChange($event)">
+        {{ item.text }}
+      </ion-checkbox>
+      <ion-text *ngIf="selectMode !== 'multiple'">{{ item.text }}</ion-text>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

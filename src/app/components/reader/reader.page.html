@@ -1,0 +1,51 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ chapterTitle }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button expand="block" id="open-toc">
+        <ion-icon name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div id="container">
+    <div class="nav back" (click)="showPrev()"></div>
+    <div class="nav next" (click)="showNext()"></div>
+    <div id="viewer"></div>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button>
+        <ion-icon name="chevron-up-circle"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button id="open-toc">
+          <ion-icon name="list-circle"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button >
+          <ion-icon name="settings"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button >
+          <ion-icon name="chevron-back-circle"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+  </div>
+</ion-content>
+
+<ion-modal trigger="open-toc" #modal>
+  <ng-template>
+    <app-searchable-list
+      class="ion-page"
+      title="Select chapter"
+      [items]="searchItems"
+      selectMode="none"
+      [selectedItems]="selectedChapters"
+      (selectionChange)="selectedChaptersChanged($event); modal.dismiss();"
+      (selectionCancel)="modal.dismiss()"
+    ></app-searchable-list>
+  </ng-template>
+</ion-modal>
