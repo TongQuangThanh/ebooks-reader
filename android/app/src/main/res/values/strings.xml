@@ -4,5 +4,4 @@
     <string name="title_activity_main">Ebooks Reader</string>
     <string name="package_name">com.thnvn.ebooks</string>
     <string name="custom_url_scheme">com.thnvn.ebooks</string>
-    <string name="admob_app_id">ca-app-pub-1861772573153532~5040773722</string>
 </resources>
